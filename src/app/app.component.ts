@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-training';
+  private titles: string = 'first-component';
+
+  public nameList: Array<string> = ['tokyo', 'berlin', 'usa', 'delhi', 'mumbai' , 'hyderabad'];
+
+  public get title(): string {
+    return this.titles;
+  }
 }
