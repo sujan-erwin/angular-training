@@ -10,7 +10,17 @@ export class AppComponent {
 
   public nameList: Array<string> = ['tokyo', 'berlin', 'usa', 'delhi', 'mumbai' , 'hyderabad'];
 
+  public inputType: string = 'text';
+  public defaultValue: string = '';
+
   public get title(): string {
     return this.titles;
   }
+
+
+  public updateDefaultValue(id: string): void{
+    const element: HTMLInputElement = document.getElementById(id) as HTMLInputElement;
+    this.defaultValue = element.value;
+  }
+
 }

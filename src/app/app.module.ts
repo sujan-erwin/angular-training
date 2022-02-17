@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-// angular material inputes
-import {MatDividerModule} from '@angular/material/divider';
-import { MatListModule } from '@angular/material/list';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+
+import { MaterialModule } from './shared/material.module';
 
 @NgModule({
   declarations: [
@@ -19,8 +18,8 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
-    MatDividerModule,
-    MatListModule
+    FormsModule,
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
