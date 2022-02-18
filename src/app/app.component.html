@@ -1,32 +1,9 @@
-<section>
-  <h1 id="first">{{title}}</h1>
-  <!-- <ul *ngIf="nameList && nameList.length" >
-      <li *ngFor="let city of nameList; let i = index;">{{city}} - {{i}} </li>
-    </ul>
-    <ul *ngIf="nameList && nameList.length <= 0" >
-       <li>no cities are available</li>
-    </ul> -->
-  <!--
-  <mat-list role="list" *ngIf="nameList && nameList.length">
-    <mat-list-item role="listitem"
-                   *ngFor="let city of nameList; let i = index;">
-      {{city | titlecase }}
-    </mat-list-item>
-  </mat-list> -->
-
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Default Value</mat-label>
-    <input matInput [(ngModel)]="defaultValue">
-  </mat-form-field>
-  <!-- <span [ngStyle]="{'background-color': defaultValue.length <= 5 ? 'red' : 'green'}">{{defaultValue}}</span> -->
-  <span [ngClass]="{ 'highlight-bg-red': defaultValue.length <= 5,
-                      'highlight-bg-green': defaultValue.length > 5}">
-        {{defaultValue}}
-  </span>
-
-  <!-- <input [type]="inputType" placeholder="default value" [(ngModel)]="defaultValue"/>
-   <p>{{defaultValue}}</p> -->
-  <!-- <button [disabled]="!defaultValue.length">submit</button> -->
-</section>
-
-<!-- <router-outlet></router-outlet> -->
+<mat-card>
+   <h1>List of Employees</h1>
+   <ng-container *ngIf="employees && employees.length">
+     <app-list-of-employees [displayList]="displayedColumns"
+                            [employeeList]="employees"
+                            (updateEmployee)="update($event)">
+     </app-list-of-employees>
+   </ng-container>
+</mat-card>

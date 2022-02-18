@@ -8,11 +8,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 
 import { MaterialModule } from './shared/material.module';
+import { ListOfEmployeesComponent } from './list-of-employees/list-of-employees.component';
+import { AddOrUpdateEmployeeComponent } from './add-or-update-employee/add-or-update-employee.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    ListOfEmployeesComponent,
+    AddOrUpdateEmployeeComponent
   ],
   imports: [
     AppRoutingModule,
@@ -22,6 +26,7 @@ import { MaterialModule } from './shared/material.module';
     MaterialModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AddOrUpdateEmployeeComponent]
 })
 export class AppModule { }

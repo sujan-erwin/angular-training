@@ -1,26 +1,59 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddOrUpdateEmployeeComponent } from './add-or-update-employee/add-or-update-employee.component';
+import { IEmployee } from './models/employee';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  private titles: string = 'first-component';
+export class AppComponent implements OnInit {
 
-  public nameList: Array<string> = ['tokyo', 'berlin', 'usa', 'delhi', 'mumbai' , 'hyderabad'];
+  public displayedColumns: string[] = ['index', 'name', 'age', 'salary', 'country', 'position'];
+  public employees: Array<IEmployee> = [];
 
-  public inputType: string = 'text';
-  public defaultValue: string = '';
+  constructor(
+    private dialog: MatDialog,
+  ){
 
-  public get title(): string {
-    return this.titles;
   }
 
+  ngOnInit(): void {
+    this.addEmployeeData();
+  }
 
-  public updateDefaultValue(id: string): void{
-    const element: HTMLInputElement = document.getElementById(id) as HTMLInputElement;
-    this.defaultValue = element.value;
+  public addEmployeeData(): void {
+    this.employees = [
+      {
+        index: 1,
+        name: 'chandra sekhar',
+        age: 32,
+        salary: 200000,
+        country: 'india',
+        position: 'senior manager',
+      },
+      {
+        index: 2,
+        name: 'sai kumar',
+        age: 32,
+        salary: 200000,
+        country: 'USA',
+        position: 'senior manager',
+      }];
+  }
+
+  public update(employee: IEmployee): void{
+    console.log(employee);
+    this.openDialog();
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(AddOrUpdateEmployeeComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 }
