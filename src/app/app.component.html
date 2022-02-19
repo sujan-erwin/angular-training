@@ -1,5 +1,8 @@
 <mat-card>
-   <h1>List of Employees</h1>
+  <section class="list-of-employees">
+    <h1>List of Employees</h1>
+    <button mat-raised-button (click)="addEmployee()">Add Employee</button>
+  </section>
    <ng-container *ngIf="employees && employees.length">
      <app-list-of-employees [displayList]="displayedColumns"
                             [employeeList]="employees"

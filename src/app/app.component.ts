@@ -44,15 +44,35 @@ export class AppComponent implements OnInit {
   }
 
   public update(employee: IEmployee): void{
-    console.log(employee);
+    this.openDialog(employee);
+  }
+
+  public addEmployee(){
     this.openDialog();
   }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(AddOrUpdateEmployeeComponent);
+  openDialog(employee?: IEmployee) {
+    const dialogRef = this.dialog.open(AddOrUpdateEmployeeComponent, {
+       width: '500px',
+       height: '450px',
+       data: {
+         employee : employee,
+         iscreated: employee ? false: true,
+         employeeLength: this.employees.length
+        }
+    });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      if(result){
+        console.log(`Dialog result`, result);
+        const index = this.employees.findIndex(employee => employee.index === result.index);
+        if(index > -1){
+          this.employees[index] = result;
+        } else {
+           this.employees.push(result);
+        }
+        this.employees = [...this.employees];
+      }
     });
   }
 
