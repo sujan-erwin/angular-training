@@ -10,13 +10,15 @@ import { LoginComponent } from './login/login.component';
 import { MaterialModule } from './shared/material.module';
 import { ListOfEmployeesComponent } from './list-of-employees/list-of-employees.component';
 import { AddOrUpdateEmployeeComponent } from './add-or-update-employee/add-or-update-employee.component';
+import { DeleteConfirmationComponent } from './delete-confirmation/delete-confirmation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ListOfEmployeesComponent,
-    AddOrUpdateEmployeeComponent
+    AddOrUpdateEmployeeComponent,
+    DeleteConfirmationComponent
   ],
   imports: [
     AppRoutingModule,

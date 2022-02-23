@@ -6,7 +6,8 @@
    <ng-container *ngIf="employees && employees.length">
      <app-list-of-employees [displayList]="displayedColumns"
                             [employeeList]="employees"
-                            (updateEmployee)="update($event)">
+                            (updateEmployee)="update($event)"
+                            (deleteEmployee)="deleteEmployeeByIndex($event)">
      </app-list-of-employees>
    </ng-container>
 </mat-card>

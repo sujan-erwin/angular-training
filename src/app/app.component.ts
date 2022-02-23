@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+ import { MatDialog } from '@angular/material/dialog';
 import { AddOrUpdateEmployeeComponent } from './add-or-update-employee/add-or-update-employee.component';
 import { IEmployee } from './models/employee';
 
@@ -8,9 +8,9 @@ import { IEmployee } from './models/employee';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-  public displayedColumns: string[] = ['index', 'name', 'age', 'salary', 'country', 'position'];
+  public displayedColumns: string[] = ['index', 'name', 'age', 'salary', 'country', 'position', 'actions'];
   public employees: Array<IEmployee> = [];
 
   constructor(
@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
     this.openDialog();
   }
 
-  openDialog(employee?: IEmployee) {
+  private openDialog(employee?: IEmployee): void {
     const dialogRef = this.dialog.open(AddOrUpdateEmployeeComponent, {
        width: '500px',
        height: '450px',
@@ -76,4 +76,12 @@ export class AppComponent implements OnInit {
     });
   }
 
+  public deleteEmployeeByIndex(employeeIndex: number){
+    this.employees = this.employees.filter(employee => employee.index !== employeeIndex);
+    this.employees = this.employees.map((employee, index )=> {
+       employee.index = index + 1;
+      return employee;
+    });
+
+  }
 }
