@@ -1,87 +1,79 @@
 import { Component, OnInit } from '@angular/core';
- import { MatDialog } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { AddOrUpdateEmployeeComponent } from './add-or-update-employee/add-or-update-employee.component';
 import { IEmployee } from './models/employee';
+import { EmployeeService } from './services/employee.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  public displayedColumns: string[] = ['index', 'name', 'age', 'salary', 'country', 'position', 'actions'];
+  public displayedColumns: string[] = ['id', 'name', 'age', 'salary', 'country', 'position', 'actions'];
   public employees: Array<IEmployee> = [];
 
   constructor(
     private dialog: MatDialog,
-  ){
-
-  }
+    private employeeService: EmployeeService
+  ) { }
 
   ngOnInit(): void {
-    this.addEmployeeData();
+    this.getListOfEmployees();
   }
 
-  public addEmployeeData(): void {
-    this.employees = [
-      {
-        index: 1,
-        name: 'chandra sekhar',
-        age: 32,
-        salary: 200000,
-        country: 'india',
-        position: 'senior manager',
-      },
-      {
-        index: 2,
-        name: 'sai kumar',
-        age: 32,
-        salary: 200000,
-        country: 'USA',
-        position: 'senior manager',
-      }];
+  getListOfEmployees(isDeleted?: boolean) {
+    this.employeeService.getListOfEmployees().subscribe(employees => {
+      this.employees = employees;
+      if (isDeleted) {
+        this.employees = this.employees.map((employee, index) => {
+          employee.id = index + 1;
+          return employee;
+        });
+      }
+    });
   }
 
-  public update(employee: IEmployee): void{
+
+  public update(employee: IEmployee): void {
     this.openDialog(employee);
   }
 
-  public addEmployee(){
+  public addEmployee() {
     this.openDialog();
   }
 
   private openDialog(employee?: IEmployee): void {
     const dialogRef = this.dialog.open(AddOrUpdateEmployeeComponent, {
-       width: '500px',
-       height: '450px',
-       data: {
-         employee : employee,
-         iscreated: employee ? false: true,
-         employeeLength: this.employees.length
-        }
+      width: '500px',
+      height: '450px',
+      data: {
+        employee: employee,
+        iscreated: employee ? false : true,
+        employeeLength: this.employees.length
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result){
-        console.log(`Dialog result`, result);
-        const index = this.employees.findIndex(employee => employee.index === result.index);
-        if(index > -1){
-          this.employees[index] = result;
+      if (result) {
+        const index = this.employees.findIndex(employee => employee.id === result.id);
+        if (index > -1) {
+          this.employeeService.updateEmployeeByIndex(result).subscribe(employee => {
+            this.getListOfEmployees();
+          });
         } else {
-           this.employees.push(result);
+          this.employeeService.addEmployee(result).subscribe(employee => {
+            this.getListOfEmployees();
+          });
         }
-        this.employees = [...this.employees];
       }
     });
   }
 
-  public deleteEmployeeByIndex(employeeIndex: number){
-    this.employees = this.employees.filter(employee => employee.index !== employeeIndex);
-    this.employees = this.employees.map((employee, index )=> {
-       employee.index = index + 1;
-      return employee;
+  public deleteEmployeeByIndex(employeeIndex: number) {
+    this.employeeService.deleteEmployeeByIndex(employeeIndex).subscribe(employee => {
+      this.getListOfEmployees(true);
     });
-
   }
 }

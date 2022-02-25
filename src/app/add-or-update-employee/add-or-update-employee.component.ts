@@ -43,7 +43,7 @@ export class AddOrUpdateEmployeeComponent implements OnInit {
 
   updateEmployee() {
     const employee: IEmployee = {
-      index: this.isCreation ? this.employeeLength+1 : this.data.index,
+      id: this.isCreation ? this.employeeLength + 1 : this.data.employee.id,
       name: this.name,
       age: this.age,
       salary: this.salary,

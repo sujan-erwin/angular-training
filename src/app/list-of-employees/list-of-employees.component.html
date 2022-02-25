@@ -1,9 +1,9 @@
 <table mat-table [dataSource]="employees" class="mat-elevation-z8">
 
   <!-- index Column -->
-  <ng-container matColumnDef="index">
+  <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element?.index}} </td>
+    <td mat-cell *matCellDef="let element"> {{element?.id}} </td>
   </ng-container>
 
   <!-- Name Column -->
@@ -51,7 +51,7 @@
                 matTooltip="Click to Delete"
                 class="iconbutton"
                 color="warn"
-               (click)="deleteEmployeeById($event, row?.index);">
+               (click)="deleteEmployeeById($event, row?.id);">
             <mat-icon aria-label="Delete">delete</mat-icon>
         </button>
       </mat-cell>

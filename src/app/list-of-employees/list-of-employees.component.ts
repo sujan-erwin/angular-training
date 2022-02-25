@@ -21,7 +21,6 @@ export class ListOfEmployeesComponent {
 
 
   public employeeInfo(employee: IEmployee): void{
-    console.log('the employeeInfo is ', employee);
     this.updateEmployee.emit(employee);
    }
 

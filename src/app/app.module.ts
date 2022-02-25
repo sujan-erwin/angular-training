@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +28,7 @@ import { DeleteConfirmationComponent } from './delete-confirmation/delete-confir
     BrowserAnimationsModule,
     FormsModule,
     MaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
