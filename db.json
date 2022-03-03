@@ -1,0 +1,54 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "chandra sekhar IT",
+      "age": 23,
+      "salary": 2345000,
+      "position": "Web Developer",
+      "country": "Italy"
+    },
+    {
+      "id": 2,
+      "name": "sai",
+      "age": 23,
+      "salary": 2345000,
+      "position": "software Engineer",
+      "country": "Greece"
+    },
+    {
+      "id": 3,
+      "name": "Draft 1",
+      "age": 33,
+      "salary": 2333333,
+      "position": "Software Developer",
+      "country": "Australia"
+    },
+    {
+      "id": 4,
+      "name": "suresh",
+      "age": 34,
+      "salary": 345000,
+      "position": "Web Developer",
+      "country": "Italy"
+    },
+    {
+      "id": 5,
+      "name": "chandra sekhar IT",
+      "age": 23,
+      "salary": 234000,
+      "position": "Web Developer",
+      "country": "Italy"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
