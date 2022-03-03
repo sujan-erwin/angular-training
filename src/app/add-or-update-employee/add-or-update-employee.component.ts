@@ -11,15 +11,15 @@ import { IEmployee } from '../models/employee';
 export class AddOrUpdateEmployeeComponent implements OnInit {
 
   public isCreation: boolean = false;
-  public positions: Array<String> = ['Web Developer', 'software Engineer', 'Software Developer',
+  public positions: Array<string> = ['Web Developer', 'software Engineer', 'Software Developer',
     'Front End Developer', 'Network Engineer', 'senior manager'];
-  public countries: Array<String> = ['Italy', 'Spain', 'France', 'Australia', 'Greece', 'Portugal', 'USA', 'Brazil', 'india'];
+  public countries: Array<string> = ['Italy', 'Spain', 'France', 'Australia', 'Greece', 'Portugal', 'USA', 'Brazil', 'india'];
 
   public name: string = '';
   public age: number = 0;
   public salary: number = 0;
-  public position: string = '';
-  public country: string = '';
+  public position: string = this.positions[0];
+  public country: string = this.countries[0];
   public employeeLength: number = 0;
 
 
