@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AddOrUpdateEmployeeComponent } from './add-or-update-employee/add-or-update-employee.component';
+import { AddOrUpdateEmployeeComponent } from './components/add-or-update-employee/add-or-update-employee.component';
 import { IEmployee } from './models/employee';
 import { EmployeeService } from './services/employee.service';
 

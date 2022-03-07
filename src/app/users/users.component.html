@@ -1,3 +1,5 @@
 <mat-list>
-  <mat-list-item *ngFor="let user of listOfUsers; let i=index;"> {{user?.username}} -- {{user.id}} </mat-list-item>
+  <mat-list-item *ngFor="let user of listOfUsers; let i=index;" (click)="navigateToUserById(user)">
+     {{user?.username}} -- {{user.id}}
+  </mat-list-item>
  </mat-list>

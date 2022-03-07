@@ -9,12 +9,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // imports user defined
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './components/login/login.component';
 import { MaterialModule } from './shared/material.module';
-import { ListOfEmployeesComponent } from './list-of-employees/list-of-employees.component';
-import { AddOrUpdateEmployeeComponent } from './add-or-update-employee/add-or-update-employee.component';
-import { DeleteConfirmationComponent } from './delete-confirmation/delete-confirmation.component';
+import { ListOfEmployeesComponent } from './components/list-of-employees/list-of-employees.component';
+import { AddOrUpdateEmployeeComponent } from './components/add-or-update-employee/add-or-update-employee.component';
+import { DeleteConfirmationComponent } from './components/delete-confirmation/delete-confirmation.component';
 import { UsersModule } from './users/users.module';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UsersModule } from './users/users.module';
     AddOrUpdateEmployeeComponent,
     DeleteConfirmationComponent,
     ListOfEmployeesComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent
   ],
   imports: [
     AppRoutingModule,

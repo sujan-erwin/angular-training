@@ -7,8 +7,10 @@ import { MatDividerModule } from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   imports: [
@@ -21,6 +23,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatListModule,
     MatSelectModule,
     MatTableModule,
+    MatToolbarModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     MatButtonModule,
@@ -31,7 +35,9 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     MatListModule,
     MatSelectModule,
-    MatTableModule
+    MatTableModule,
+    MatToolbarModule,
+    MatProgressSpinnerModule
   ]
 })
 export class MaterialModule { }
