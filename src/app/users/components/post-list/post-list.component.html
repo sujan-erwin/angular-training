@@ -1,1 +1,7 @@
-<p>post-list works!</p>
+<mat-list>
+  <h2>list of posts</h2>
+  <mat-list-item *ngFor="let post of listOfPosts; let i=index;">
+     <!-- {{post?.title}} -- {{post?.body}} -- {{post?.userId}} -->
+     <app-post [post]="post"></app-post>
+  </mat-list-item>
+ </mat-list>

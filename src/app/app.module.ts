@@ -16,6 +16,7 @@ import { AddOrUpdateEmployeeComponent } from './components/add-or-update-employe
 import { DeleteConfirmationComponent } from './components/delete-confirmation/delete-confirmation.component';
 import { UsersModule } from './users/users.module';
 import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HeaderComponent } from './components/header/header.component';
     DeleteConfirmationComponent,
     ListOfEmployeesComponent,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     AppRoutingModule,

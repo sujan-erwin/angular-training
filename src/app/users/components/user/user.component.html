@@ -4,6 +4,6 @@
     {{user | json}}
   </section>
   <ng-container *ngIf="!isLoading">
-     <app-post [userId]="userId"></app-post>
+     <app-post-list [userId]="userId"></app-post-list>
   </ng-container>
 </mat-card>
