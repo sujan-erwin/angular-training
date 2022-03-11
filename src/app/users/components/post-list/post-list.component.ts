@@ -1,33 +1,22 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { IPost } from 'src/app/shared/models/post';
-import { PostsService } from 'src/app/shared/services/posts/posts.service';
 
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.scss']
 })
-export class PostListComponent implements OnChanges {
+export class PostListComponent implements OnInit {
 
-  @Input() userId: number | undefined;
   public listOfPosts: Array<IPost> = [];
 
   constructor(
-    private postsService: PostsService
+    private route: ActivatedRoute
   ) { }
 
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (this.userId) {
-      this.getPostsByUserId(this.userId as number);
-    }
+  ngOnInit(): void {
+      this.listOfPosts = this.route.snapshot.data.userAndPostList[1];
   }
 
-  getPostsByUserId(userId: number) {
-    this.postsService.getPostsByUserId(userId).subscribe(posts => {
-      this.listOfPosts = posts;
-    }, error => {
-      console.log('the error is', error);
-    });
-  }
 }
