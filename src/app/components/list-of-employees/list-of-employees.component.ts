@@ -2,7 +2,7 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
 import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { DeleteConfirmationComponent } from '../delete-confirmation/delete-confirmation.component';
-import { IEmployee } from '../models/employee';
+import { IEmployee } from '../../models/employee';
 
 
 @Component({
